@@ -127,6 +127,10 @@ nav {
 .resume-button:hover {
     background-color: var(--primary-hover);
 }
+/* FIX: Added rule to ensure the resume link text is white */
+nav a.resume-button {
+    color: white;
+}
 .mobile-menu-button {
     display: none;
     background: none;
