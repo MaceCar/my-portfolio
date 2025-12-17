@@ -127,7 +127,6 @@ nav {
 .resume-button:hover {
     background-color: var(--primary-hover);
 }
-/* FIX: Added rule to ensure the resume link text is white */
 nav a.resume-button {
     color: white;
 }
@@ -136,8 +135,9 @@ nav a.resume-button {
     background: none;
     border: none;
     color: var(--text-dark);
-    font-size: 1.2rem;
+    font-size: 1.5rem; /* Slightly larger icon */
     cursor: pointer;
+    z-index: 1002; /* Ensure it's above the menu overlay */
 }
 /* --- Buttons --- */
 .button {
@@ -214,7 +214,7 @@ nav a.resume-button {
     white-space: nowrap;
 }
 .badge:first-child {
-    background-color: var(--secondary-color);
+    background-color: hsla(217, 12%, 86%, 1);
     color: var(--text-dark);
 }
 .badge-outlined {
@@ -635,6 +635,7 @@ footer {
     transform: translateY(-4px);
     box-shadow: 0 6px 16px hsla(217, 91%, 35%, 0.4);
 }
+
 /* --- Responsive Design --- */
 @media (max-width: 1024px) {
     .skills-grid {
@@ -647,8 +648,35 @@ footer {
    
     .container { padding: 40px 15px; }
    
+    /* --- MOBILE MENU STYLES --- */
     .nav-links {
-        display: none;
+        display: none; /* Hide by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(255, 255, 255, 0.98);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        z-index: 1001;
+    }
+
+    .nav-links.active {
+        display: flex; /* Show when active */
+    }
+
+    .nav-links a {
+        font-size: 1.5rem;
+        color: var(--text-dark);
+        font-weight: 600;
+    }
+
+    .nav-links .resume-button {
+        font-size: 1rem;
+        padding: 12px 24px;
     }
    
     .mobile-menu-button {
@@ -661,6 +689,9 @@ footer {
         gap: 40px;
     }
     .hero-text {
+        text-align: center;
+    }
+    .hero-text h2 {
         text-align: center;
     }
     .badges, .location-status, .hero-buttons {
