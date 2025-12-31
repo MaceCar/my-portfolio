@@ -187,11 +187,11 @@ nav a.resume-button {
     text-align: left;
 }
 .hero-logo img {
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid var(--card-bg);
+    border: 1px solid var(--card-bg);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     flex-shrink: 0;
 }
